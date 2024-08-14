@@ -197,6 +197,8 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		ExchangeTimeout:   opt.ExchangeTimeout,
 		DialTimeout:       opt.DialTimeout,
 		Clock:             opt.Clock,
+		PingInterval:      opt.PingInterval,
+		PingTimeout:       opt.PingTimeout,
 
 		Types: getTypesMapping(),
 

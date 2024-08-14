@@ -94,6 +94,9 @@ type Options struct {
 	MessageID mtproto.MessageIDSource
 	Clock     clock.Clock
 
+	PingInterval time.Duration
+	PingTimeout  time.Duration
+
 	// OpenTelemetry.
 	TracerProvider trace.TracerProvider
 
