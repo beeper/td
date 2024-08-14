@@ -42,7 +42,6 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 			Users: comb.Users,
 			Chats: comb.Chats,
 		}
-		others []tg.UpdateClass
 	)
 	sortUpdatesByPts(comb.Updates)
 
@@ -71,8 +70,6 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 			if err := s.handlePts(ctx, pts, ptsCount, u, ents); err != nil {
 				return false, err
 			}
-
-			continue
 		}
 
 		if channelID, pts, ptsCount, ok, err := tg.IsChannelPtsUpdate(u); ok {
@@ -87,29 +84,21 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 			}); err != nil {
 				s.log.Error("Handle channel update error", zap.Error(err))
 			}
-
-			continue
 		}
 
 		if qts, ok := tg.IsQtsUpdate(u); ok {
 			if err := s.handleQts(ctx, qts, u, ents); err != nil {
 				return false, err
 			}
-
-			continue
 		}
-
-		others = append(others, u)
 	}
 
-	if len(others) > 0 {
-		if err := s.handler.Handle(ctx, &tg.Updates{
-			Updates: others,
-			Users:   ents.Users,
-			Chats:   ents.Chats,
-		}); err != nil {
-			s.log.Error("Handle updates error", zap.Error(err))
-		}
+	if err := s.handler.Handle(ctx, &tg.Updates{
+		Updates: comb.Updates,
+		Users:   ents.Users,
+		Chats:   ents.Chats,
+	}); err != nil {
+		s.log.Error("Handle updates error", zap.Error(err))
 	}
 
 	setDate, setSeq := comb.Date > s.date, comb.Seq > 0
