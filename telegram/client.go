@@ -200,6 +200,8 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		PingInterval:      opt.PingInterval,
 		PingTimeout:       opt.PingTimeout,
 
+		Handler: SessionNotifierHandler{opt.OnSession},
+
 		Types: getTypesMapping(),
 
 		Tracer: client.tracer,
@@ -207,6 +209,25 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 	client.conn = client.createPrimaryConn(nil)
 
 	return client
+}
+
+// SessionNotifierHandler is a handler which notifies when a session is
+// received.
+type SessionNotifierHandler struct {
+	onSession func()
+}
+
+// OnSession implements Handler.
+func (n SessionNotifierHandler) OnSession(s mtproto.Session) error {
+	if n.onSession != nil {
+		n.onSession()
+	}
+	return nil
+}
+
+// OnMessage implements Handler
+func (n SessionNotifierHandler) OnMessage(b *bin.Buffer) error {
+	return nil
 }
 
 // init sets fields which needs explicit initialization, like maps or channels.
