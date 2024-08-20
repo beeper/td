@@ -45,7 +45,7 @@ func (c *Client) Pool(max int64) (CloseInvoker, error) {
 	s := c.session.Load()
 	return c.createPool(s.DC, max, func() pool.Conn {
 		id := c.connsCounter.Inc()
-		return c.createConn(id, manager.ConnModeData, nil, c.onDead)
+		return c.createConn(id, manager.ConnModeData, nil, c.onDead, c.onAuthError)
 	})
 }
 
