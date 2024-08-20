@@ -63,6 +63,7 @@ type Client struct {
 	create         connConstructor        // immutable
 	resolver       dcs.Resolver           // immutable
 	onDead         func()                 // immutable
+	onAuthError    func(error)            // immutable
 	newConnBackoff func() backoff.BackOff // immutable
 	defaultMode    manager.ConnMode       // immutable
 
@@ -166,6 +167,7 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		defaultMode:      mode,
 		newConnBackoff:   opt.ReconnectionBackoff,
 		onDead:           opt.OnDead,
+		onAuthError:      opt.OnAuthError,
 		clock:            opt.Clock,
 		device:           opt.Device,
 		migrationTimeout: opt.MigrationTimeout,

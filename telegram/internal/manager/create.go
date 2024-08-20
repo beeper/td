@@ -9,6 +9,7 @@ import (
 	"github.com/gotd/td/clock"
 	"github.com/gotd/td/mtproto"
 	"github.com/gotd/td/tdsync"
+	"github.com/gotd/td/telegram/auth"
 	"github.com/gotd/td/tg"
 )
 
@@ -17,13 +18,14 @@ type SetupCallback = func(ctx context.Context, invoker tg.Invoker) error
 
 // ConnOptions is a Telegram client connection options.
 type ConnOptions struct {
-	DC      int
-	Test    bool
-	Device  DeviceConfig
-	Handler Handler
-	Setup   SetupCallback
-	OnDead  func()
-	Backoff func(ctx context.Context) backoff.BackOff
+	DC          int
+	Test        bool
+	Device      DeviceConfig
+	Handler     Handler
+	Setup       SetupCallback
+	OnDead      func()
+	OnAuthError func(error)
+	Backoff     func(ctx context.Context) backoff.BackOff
 }
 
 func defaultBackoff(c clock.Clock) func(ctx context.Context) backoff.BackOff {
@@ -83,6 +85,11 @@ func CreateConn(
 	}
 	opts.Handler = conn
 	opts.Logger = conn.log.Named("mtproto")
+	opts.OnError = func(err error) {
+		if auth.IsUnauthorized(err) && connOpts.OnAuthError != nil {
+			connOpts.OnAuthError(err)
+		}
+	}
 	conn.proto = mtproto.New(create, opts)
 
 	return conn

@@ -33,6 +33,8 @@ type Engine struct {
 
 	wg     sync.WaitGroup
 	closed uint32
+
+	onError func(error)
 }
 
 // New creates new rpc Engine.
@@ -59,6 +61,8 @@ func New(send Send, cfg Options) *Engine {
 
 		reqCtx:    reqCtx,
 		reqCancel: reqCancel,
+
+		onError: cfg.OnError,
 	}
 }
 
@@ -247,6 +251,7 @@ func (e *Engine) NotifyResult(msgID int64, b *bin.Buffer) error {
 
 // NotifyError notifies engine about received RPC error.
 func (e *Engine) NotifyError(msgID int64, rpcErr error) {
+	e.onError(rpcErr)
 	e.mux.Lock()
 	fn, ok := e.rpc[msgID]
 	e.mux.Unlock()

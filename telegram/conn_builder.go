@@ -69,7 +69,7 @@ func (c *Client) primaryDC(dc int) mtproto.Dialer {
 }
 
 func (c *Client) createPrimaryConn(setup manager.SetupCallback) pool.Conn {
-	return c.createConn(0, c.defaultMode, setup, c.onDead)
+	return c.createConn(0, c.defaultMode, setup, c.onDead, c.onAuthError)
 }
 
 func (c *Client) createConn(
@@ -77,6 +77,7 @@ func (c *Client) createConn(
 	mode manager.ConnMode,
 	setup manager.SetupCallback,
 	onDead func(),
+	onAuthError func(error),
 ) pool.Conn {
 	opts, s := c.session.Options(c.opts)
 	opts.Logger = c.log.Named("conn").With(
@@ -87,12 +88,13 @@ func (c *Client) createConn(
 	return c.create(
 		c.primaryDC(s.DC), mode, c.appID,
 		opts, manager.ConnOptions{
-			DC:      s.DC,
-			Test:    c.testDC,
-			Device:  c.device,
-			Handler: c.asHandler(),
-			Setup:   setup,
-			OnDead:  onDead,
+			DC:          s.DC,
+			Test:        c.testDC,
+			Device:      c.device,
+			Handler:     c.asHandler(),
+			Setup:       setup,
+			OnDead:      onDead,
+			OnAuthError: onAuthError,
 		},
 	)
 }

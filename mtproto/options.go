@@ -83,6 +83,9 @@ type Options struct {
 	Cipher Cipher
 	// engine for replacing RPC engine.
 	engine *rpc.Engine
+
+	// OnError is a function that is called if there is any error.
+	OnError func(err error)
 }
 
 type nopHandler struct{}
