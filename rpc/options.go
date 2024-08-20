@@ -15,6 +15,7 @@ type Options struct {
 	Logger        *zap.Logger
 	Clock         clock.Clock
 	DropHandler   DropHandler
+	OnError       func(error)
 }
 
 func (cfg *Options) setDefaults() {
@@ -32,5 +33,8 @@ func (cfg *Options) setDefaults() {
 	}
 	if cfg.DropHandler == nil {
 		cfg.DropHandler = NopDrop
+	}
+	if cfg.OnError == nil {
+		cfg.OnError = func(err error) {}
 	}
 }

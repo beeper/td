@@ -160,6 +160,7 @@ func New(dialer Dialer, opt Options) *Conn {
 			MaxRetries:    opt.MaxRetries,
 			Clock:         opt.Clock,
 			DropHandler:   conn.dropRPC,
+			OnError:       opt.OnError,
 		})
 	}
 

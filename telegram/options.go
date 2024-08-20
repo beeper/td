@@ -52,6 +52,8 @@ type Options struct {
 	OnDead func()
 	// OnSession will be called when the session is established.
 	OnSession func()
+	// OnAuthError will be called when there is an auth error.
+	OnAuthError func(error)
 	// MigrationTimeout configures migration timeout.
 	MigrationTimeout time.Duration
 
