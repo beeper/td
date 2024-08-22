@@ -186,6 +186,9 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 			Storage: opt.SessionStorage,
 		}
 	}
+	if opt.CustomSessionStorage != nil {
+		client.storage = opt.CustomSessionStorage
+	}
 
 	client.opts = mtproto.Options{
 		PublicKeys:        opt.PublicKeys,
