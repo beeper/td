@@ -63,7 +63,8 @@ type Options struct {
 	Logger *zap.Logger
 	// SessionStorage will be used to load and save session data.
 	// NB: Very sensitive data, save with care.
-	SessionStorage SessionStorage
+	SessionStorage       SessionStorage
+	CustomSessionStorage clientStorage
 	// UpdateHandler will be called on received update.
 	UpdateHandler UpdateHandler
 	// Middlewares list allows wrapping tg.Invoker. Can be useful for metrics,
