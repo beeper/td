@@ -19,7 +19,6 @@ type clientHandler struct {
 }
 
 func (c clientHandler) OnSession(cfg tg.Config, s mtproto.Session) error {
-	c.client.opts.Handler.OnSession(s)
 	return c.client.onSession(cfg, s)
 }
 

@@ -91,6 +91,7 @@ type Client struct {
 	resolver     dcs.Resolver           // immutable
 	onDead       func()                 // immutable
 	onAuthError  func(error)            // immutable
+	onConnected  func()                 // immutable
 	connBackoff  func() backoff.BackOff // immutable
 	defaultMode  manager.ConnMode       // immutable
 	connsCounter atomic.Int64
@@ -163,6 +164,7 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		connBackoff:      opt.ReconnectionBackoff,
 		onDead:           opt.OnDead,
 		onAuthError:      opt.OnAuthError,
+		onConnected:      opt.OnConnected,
 		clock:            opt.Clock,
 		device:           opt.Device,
 		migrationTimeout: opt.MigrationTimeout,
@@ -205,8 +207,6 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		PingInterval:      opt.PingInterval,
 		PingTimeout:       opt.PingTimeout,
 
-		Handler: SessionNotifierHandler{opt.OnSession},
-
 		Types: getTypesMapping(),
 
 		Tracer: client.tracer,
@@ -214,25 +214,6 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 	client.conn = client.createPrimaryConn(nil)
 
 	return client
-}
-
-// SessionNotifierHandler is a handler which notifies when a session is
-// received.
-type SessionNotifierHandler struct {
-	onSession func()
-}
-
-// OnSession implements Handler.
-func (n SessionNotifierHandler) OnSession(s mtproto.Session) error {
-	if n.onSession != nil {
-		n.onSession()
-	}
-	return nil
-}
-
-// OnMessage implements Handler
-func (n SessionNotifierHandler) OnMessage(b *bin.Buffer) error {
-	return nil
 }
 
 // init sets fields which needs explicit initialization, like maps or channels.
