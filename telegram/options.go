@@ -50,6 +50,8 @@ type Options struct {
 	ReconnectionBackoff func() backoff.BackOff
 	// OnDead will be called on connection dead.
 	OnDead func()
+	// OnSession will be called when the session is established.
+	OnSession func()
 	// OnAuthError will be called when there is an auth error.
 	OnAuthError func(error)
 	// OnConnected will be called when the connection has been established and
