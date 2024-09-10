@@ -54,6 +54,9 @@ type Options struct {
 	OnSession func()
 	// OnAuthError will be called when there is an auth error.
 	OnAuthError func(error)
+	// OnConnected will be called when the connection has been established and
+	// the user has been fetched successfully.
+	OnConnected func()
 	// MigrationTimeout configures migration timeout.
 	MigrationTimeout time.Duration
 
