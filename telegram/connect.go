@@ -29,6 +29,8 @@ func (c *Client) runUntilRestart(ctx context.Context) error {
 				// Ignore unauthorized errors.
 				if !auth.IsUnauthorized(err) {
 					c.log.Warn("Got error on self", zap.Error(err))
+				} else if c.onAuthError != nil {
+					c.onAuthError(err)
 				}
 				if h := c.onSelfError; h != nil {
 					// Help with https://github.com/gotd/td/issues/1458.
@@ -40,6 +42,9 @@ func (c *Client) runUntilRestart(ctx context.Context) error {
 			}
 
 			c.log.Info("Got self", zap.String("username", self.Username))
+			if c.onConnected != nil {
+				c.onConnected()
+			}
 			return nil
 		})
 	}
