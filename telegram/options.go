@@ -104,6 +104,7 @@ type Options struct {
 
 	PingInterval time.Duration
 	PingTimeout  time.Duration
+	PingCallback func()
 
 	// OpenTelemetry.
 	TracerProvider trace.TracerProvider

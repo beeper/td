@@ -54,6 +54,8 @@ type Options struct {
 	PingTimeout time.Duration
 	// PingInterval is duration between ping_delay_disconnect request.
 	PingInterval time.Duration
+	// PingCallback is called after a ping is acknowledged by the server.
+	PingCallback func()
 	// RequestTimeout is function which returns request timeout for given type ID.
 	RequestTimeout func(req uint32) time.Duration
 

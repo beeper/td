@@ -73,6 +73,9 @@ func (c *Conn) pingDelayDisconnect(ctx context.Context, delay int) error {
 
 	select {
 	case <-pong:
+		if c.pingCallback != nil {
+			c.pingCallback()
+		}
 		return nil
 	case <-ctx.Done():
 		return ctx.Err()
