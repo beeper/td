@@ -95,6 +95,7 @@ type Conn struct {
 	pingTimeout time.Duration
 	// pingInterval is duration between ping_delay_disconnect request.
 	pingInterval time.Duration
+	pingCallback func()
 
 	// gotSession is a signal channel for wait for handleSessionCreated message.
 	gotSession *tdsync.Ready
@@ -143,6 +144,7 @@ func New(dialer Dialer, opt Options) *Conn {
 		ping:         map[int64]chan struct{}{},
 		pingTimeout:  opt.PingTimeout,
 		pingInterval: opt.PingInterval,
+		pingCallback: opt.PingCallback,
 
 		gotSession: tdsync.NewReady(),
 

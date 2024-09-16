@@ -17,6 +17,7 @@ func (c *Conn) handleMessage(msgID int64, b *bin.Buffer) error {
 	}
 
 	c.logWithBuffer(b).Debug("Handle message", zap.Int64("msg_id", msgID))
+
 	switch id {
 	case mt.NewSessionCreatedTypeID:
 		return c.handleSessionCreated(b)

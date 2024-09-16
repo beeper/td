@@ -206,6 +206,7 @@ func NewClient(appID int, appHash string, opt Options) *Client {
 		DialTimeout:       opt.DialTimeout,
 		Clock:             opt.Clock,
 		PingInterval:      opt.PingInterval,
+		PingCallback:      opt.PingCallback,
 		PingTimeout:       opt.PingTimeout,
 
 		Handler: SessionNotifierHandler{opt.OnSession},
