@@ -18,11 +18,12 @@ type clientHandler struct {
 	client *Client
 }
 
-func (c clientHandler) OnSession(cfg tg.Config, s mtproto.Session) error {
+func (c clientHandler) OnSession(cfg tg.Config, s mtproto.Session) (err error) {
+	err = c.client.onSession(cfg, s)
 	if c.client.opts.Handler != nil {
 		c.client.opts.Handler.OnSession(s)
 	}
-	return c.client.onSession(cfg, s)
+	return
 }
 
 func (c clientHandler) OnMessage(b *bin.Buffer) error {
