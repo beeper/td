@@ -44,10 +44,12 @@ func NewUpdateDispatcher() UpdateDispatcher {
 }
 
 type Entities struct {
-	Short    bool
-	Users    map[int64]*User
-	Chats    map[int64]*Chat
-	Channels map[int64]*Channel
+	Short             bool
+	Users             map[int64]*User
+	Chats             map[int64]*Chat
+	Channels          map[int64]*Channel
+	ChatsForbidden    map[int64]*ChatForbidden
+	ChannelsForbidden map[int64]*ChannelForbidden
 }
 
 func (u *Entities) short() {
@@ -55,6 +57,8 @@ func (u *Entities) short() {
 	u.Users = make(map[int64]*User, 0)
 	u.Chats = make(map[int64]*Chat, 0)
 	u.Channels = make(map[int64]*Channel, 0)
+	u.ChatsForbidden = make(map[int64]*ChatForbidden, 0)
+	u.ChannelsForbidden = make(map[int64]*ChannelForbidden, 0)
 }
 
 // Handle implements UpdateDispatcher.
@@ -70,12 +74,16 @@ func (u UpdateDispatcher) Handle(ctx context.Context, updates UpdatesClass) erro
 		chats := u.MapChats()
 		e.Chats = chats.ChatToMap()
 		e.Channels = chats.ChannelToMap()
+		e.ChatsForbidden = chats.ChatForbiddenToMap()
+		e.ChannelsForbidden = chats.ChannelForbiddenToMap()
 	case *UpdatesCombined:
 		upds = u.Updates
 		e.Users = u.MapUsers().NotEmptyToMap()
 		chats := u.MapChats()
 		e.Chats = chats.ChatToMap()
 		e.Channels = chats.ChannelToMap()
+		e.ChatsForbidden = chats.ChatForbiddenToMap()
+		e.ChannelsForbidden = chats.ChannelForbiddenToMap()
 	case *UpdateShort:
 		upds = []UpdateClass{u.Update}
 		e.short()
