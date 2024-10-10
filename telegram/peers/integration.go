@@ -7,16 +7,18 @@ import (
 
 	"github.com/gotd/td/telegram"
 	"github.com/gotd/td/telegram/message/entity"
+	"github.com/gotd/td/telegram/updates"
 	"github.com/gotd/td/tg"
 )
 
-// SetChannelAccessHash implements updates.ChannelAccessHasher.
-func (m *Manager) SetChannelAccessHash(ctx context.Context, userID, channelID, accessHash int64) error {
+var _ updates.AccessHasher = (*Manager)(nil)
+
+func (m *Manager) SetChannelAccessHash(ctx context.Context, forUserID, channelID, accessHash int64) error {
 	myID, ok := m.myID()
-	if !ok || myID != userID {
+	if !ok || myID != forUserID {
 		return nil
 	}
-	return m.storage.Save(context.TODO(), Key{
+	return m.storage.Save(ctx, Key{
 		Prefix: channelPrefix,
 		ID:     channelID,
 	}, Value{
@@ -24,15 +26,41 @@ func (m *Manager) SetChannelAccessHash(ctx context.Context, userID, channelID, a
 	})
 }
 
-// GetChannelAccessHash implements updates.ChannelAccessHasher.
-func (m *Manager) GetChannelAccessHash(ctx context.Context, userID, channelID int64) (accessHash int64, found bool, err error) {
+func (m *Manager) GetChannelAccessHash(ctx context.Context, forUserID, channelID int64) (accessHash int64, found bool, err error) {
 	myID, ok := m.myID()
-	if !ok || myID != userID {
+	if !ok || myID != forUserID {
 		return 0, false, nil
 	}
-	v, found, err := m.storage.Find(context.TODO(), Key{
+
+	v, found, err := m.storage.Find(ctx, Key{
 		Prefix: channelPrefix,
 		ID:     channelID,
+	})
+	return v.AccessHash, found, err
+}
+
+func (m *Manager) SetUserAccessHash(ctx context.Context, forUserID, userID, accessHash int64) error {
+	myID, ok := m.myID()
+	if !ok || myID != forUserID {
+		return nil
+	}
+	return m.storage.Save(ctx, Key{
+		Prefix: usersPrefix,
+		ID:     userID,
+	}, Value{
+		AccessHash: accessHash,
+	})
+}
+
+func (m *Manager) GetUserAccessHash(ctx context.Context, forUserID, userID int64) (accessHash int64, found bool, err error) {
+	myID, ok := m.myID()
+	if !ok || myID != forUserID {
+		return 0, false, nil
+	}
+
+	v, found, err := m.storage.Find(ctx, Key{
+		Prefix: usersPrefix,
+		ID:     userID,
 	})
 	return v.AccessHash, found, err
 }

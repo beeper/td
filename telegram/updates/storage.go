@@ -38,8 +38,10 @@ type StateStorage interface {
 	ForEachChannels(ctx context.Context, userID int64, f func(ctx context.Context, channelID int64, pts int) error) error
 }
 
-// ChannelAccessHasher stores users channel access hashes.
-type ChannelAccessHasher interface {
-	SetChannelAccessHash(ctx context.Context, userID, channelID, accessHash int64) error
-	GetChannelAccessHash(ctx context.Context, userID, channelID int64) (accessHash int64, found bool, err error)
+// AccessHasher stores user and channel access hashes for a user.
+type AccessHasher interface {
+	SetChannelAccessHash(ctx context.Context, forUserID, channelID, accessHash int64) error
+	GetChannelAccessHash(ctx context.Context, forUserID, channelID int64) (accessHash int64, found bool, err error)
+	SetUserAccessHash(ctx context.Context, forUserID, userID, accessHash int64) error
+	GetUserAccessHash(ctx context.Context, forUserID, userID int64) (accessHash int64, found bool, err error)
 }
