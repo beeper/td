@@ -204,20 +204,46 @@ func (s *internalState) handleUpdates(ctx context.Context, u tg.UpdatesClass) er
 		s.saveChannelHashes(ctx, u.Chats)
 		return s.handleSeq(ctx, u)
 	case *tg.UpdateShort:
-		chats, users, err := s.handleDifference(ctx, u.Date)
-		if err != nil {
-			return err
-		}
 		return s.handleUpdates(ctx, &tg.UpdatesCombined{
 			Updates: []tg.UpdateClass{u.Update},
-			Users:   users,
-			Chats:   chats,
 			Date:    u.Date,
 		})
 	case *tg.UpdateShortMessage:
-		return s.handleUpdates(ctx, s.convertShortMessage(u))
+		updateShort := s.convertShortMessage(u)
+		if _, found, err := s.hasher.GetUserAccessHash(ctx, s.selfID, u.UserID); err != nil {
+			return err
+		} else if !found {
+			chats, users, err := s.handleDifference(ctx, u.Date)
+			if err != nil {
+				return err
+			}
+			return s.handleUpdates(ctx, &tg.UpdatesCombined{
+				Updates: []tg.UpdateClass{updateShort.Update},
+				Users:   users,
+				Chats:   chats,
+				Date:    u.Date,
+			})
+		} else {
+			return s.handleUpdates(ctx, updateShort)
+		}
 	case *tg.UpdateShortChatMessage:
-		return s.handleUpdates(ctx, s.convertShortChatMessage(u))
+		updateShort := s.convertShortChatMessage(u)
+		if _, found, err := s.hasher.GetUserAccessHash(ctx, s.selfID, u.FromID); err != nil {
+			return err
+		} else if !found {
+			chats, users, err := s.handleDifference(ctx, u.Date)
+			if err != nil {
+				return err
+			}
+			return s.handleUpdates(ctx, &tg.UpdatesCombined{
+				Updates: []tg.UpdateClass{updateShort.Update},
+				Users:   users,
+				Chats:   chats,
+				Date:    u.Date,
+			})
+		} else {
+			return s.handleUpdates(ctx, updateShort)
+		}
 	case *tg.UpdateShortSentMessage:
 		return s.handleUpdates(ctx, s.convertShortSentMessage(u))
 	case *tg.UpdatesTooLong:
