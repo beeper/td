@@ -30,7 +30,7 @@ type Config struct {
 	Storage StateStorage
 	// Channel access hash storage.
 	// In-mem used if not provided.
-	AccessHasher ChannelAccessHasher
+	AccessHasher AccessHasher
 	// Logger (optional).
 	Logger *zap.Logger
 	// TracerProvider (optional).

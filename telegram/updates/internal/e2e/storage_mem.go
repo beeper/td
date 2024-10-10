@@ -156,42 +156,71 @@ func (s *memStorage) ForEachChannels(ctx context.Context, userID int64, f func(c
 	return nil
 }
 
-var _ updates.ChannelAccessHasher = (*memAccessHasher)(nil)
+var _ updates.AccessHasher = (*memAccessHasher)(nil)
 
 type memAccessHasher struct {
-	hashes map[int64]map[int64]int64
-	mux    sync.Mutex
+	channelHashes map[int64]map[int64]int64
+	userHashes    map[int64]map[int64]int64
+	mux           sync.Mutex
 }
 
 func newMemAccessHasher() *memAccessHasher {
 	return &memAccessHasher{
-		hashes: map[int64]map[int64]int64{},
+		channelHashes: map[int64]map[int64]int64{},
+		userHashes:    map[int64]map[int64]int64{},
 	}
 }
 
-func (m *memAccessHasher) GetChannelAccessHash(ctx context.Context, userID, channelID int64) (accessHash int64, found bool, err error) {
+func (m *memAccessHasher) GetChannelAccessHash(ctx context.Context, forUserID, channelID int64) (accessHash int64, found bool, err error) {
 	m.mux.Lock()
 	defer m.mux.Unlock()
 
-	userHashes, ok := m.hashes[userID]
+	accessHashes, ok := m.channelHashes[forUserID]
 	if !ok {
 		return 0, false, nil
 	}
 
-	accessHash, found = userHashes[channelID]
+	accessHash, found = accessHashes[channelID]
 	return
 }
 
-func (m *memAccessHasher) SetChannelAccessHash(ctx context.Context, userID, channelID, accessHash int64) error {
+func (m *memAccessHasher) SetChannelAccessHash(ctx context.Context, forUserID, channelID, accessHash int64) error {
 	m.mux.Lock()
 	defer m.mux.Unlock()
 
-	userHashes, ok := m.hashes[userID]
+	accessHashes, ok := m.channelHashes[forUserID]
 	if !ok {
-		userHashes = map[int64]int64{}
-		m.hashes[userID] = userHashes
+		accessHashes = map[int64]int64{}
+		m.channelHashes[forUserID] = accessHashes
 	}
 
-	userHashes[channelID] = accessHash
+	accessHashes[channelID] = accessHash
+	return nil
+}
+
+func (m *memAccessHasher) GetUserAccessHash(ctx context.Context, forUserID, userID int64) (accessHash int64, found bool, err error) {
+	m.mux.Lock()
+	defer m.mux.Unlock()
+
+	accessHashes, ok := m.userHashes[forUserID]
+	if !ok {
+		return 0, false, nil
+	}
+
+	accessHash, found = accessHashes[userID]
+	return
+}
+
+func (m *memAccessHasher) SetUserAccessHash(ctx context.Context, forUserID, userID, accessHash int64) error {
+	m.mux.Lock()
+	defer m.mux.Unlock()
+
+	accessHashes, ok := m.userHashes[forUserID]
+	if !ok {
+		accessHashes = map[int64]int64{}
+		m.channelHashes[forUserID] = accessHashes
+	}
+
+	accessHashes[userID] = accessHash
 	return nil
 }

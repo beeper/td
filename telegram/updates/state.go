@@ -49,7 +49,7 @@ type internalState struct {
 	handler   telegram.UpdateHandler
 	onTooLong func(channelID int64)
 	storage   StateStorage
-	hasher    ChannelAccessHasher
+	hasher    AccessHasher
 	selfID    int64
 	diffLim   int
 	wg        *errgroup.Group
@@ -68,7 +68,7 @@ type stateConfig struct {
 	Handler          telegram.UpdateHandler
 	OnChannelTooLong func(channelID int64)
 	Storage          StateStorage
-	Hasher           ChannelAccessHasher
+	Hasher           AccessHasher
 	SelfID           int64
 	DiffLimit        int
 	WorkGroup        *errgroup.Group
@@ -189,6 +189,7 @@ func (s *internalState) handleUpdates(ctx context.Context, u tg.UpdatesClass) er
 
 	switch u := u.(type) {
 	case *tg.Updates:
+		s.saveUserHashes(ctx, u.Users)
 		s.saveChannelHashes(ctx, u.Chats)
 		return s.handleSeq(ctx, &tg.UpdatesCombined{
 			Updates:  u.Updates,
@@ -199,11 +200,18 @@ func (s *internalState) handleUpdates(ctx context.Context, u tg.UpdatesClass) er
 			SeqStart: u.Seq,
 		})
 	case *tg.UpdatesCombined:
+		s.saveUserHashes(ctx, u.Users)
 		s.saveChannelHashes(ctx, u.Chats)
 		return s.handleSeq(ctx, u)
 	case *tg.UpdateShort:
+		chats, users, err := s.handleDifference(ctx, u.Date)
+		if err != nil {
+			return err
+		}
 		return s.handleUpdates(ctx, &tg.UpdatesCombined{
 			Updates: []tg.UpdateClass{u.Update},
+			Users:   users,
+			Chats:   chats,
 			Date:    u.Date,
 		})
 	case *tg.UpdateShortMessage:
@@ -287,7 +295,7 @@ func (s *internalState) handleChannel(ctx context.Context, channelID int64, date
 	if !ok {
 		accessHash, found, err := s.hasher.GetChannelAccessHash(context.Background(), s.selfID, channelID)
 		if err != nil {
-			s.log.Error("GetChannelAccessHash error", zap.Error(err))
+			s.log.Error("GetAccessHash error", zap.Error(err))
 		}
 
 		if !found {
@@ -299,7 +307,7 @@ func (s *internalState) handleChannel(ctx context.Context, channelID int64, date
 			}
 
 			// Try to get access hash from updates.getDifference.
-			accessHash, found = s.restoreAccessHash(ctx, channelID, date)
+			accessHash, found = s.restoreChannelAccessHash(ctx, channelID, date)
 			if !found {
 				s.log.Debug("Failed to recover missing access hash, update ignored",
 					zap.Int64("channel_id", channelID),
