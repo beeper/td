@@ -7,7 +7,6 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/gotd/td/bin"
-	"github.com/gotd/td/telegram/internal/upconv"
 	"github.com/gotd/td/tg"
 )
 
@@ -31,13 +30,7 @@ func (c *Client) processUpdates(updates tg.UpdatesClass) error {
 	case *tg.UpdateShort:
 		c.updateInterceptor(u.Update)
 		return c.updateHandler.Handle(c.ctx, u)
-	case *tg.UpdateShortMessage:
-		return c.updateHandler.Handle(c.ctx, upconv.ShortMessage(u))
-	case *tg.UpdateShortChatMessage:
-		return c.updateHandler.Handle(c.ctx, upconv.ShortChatMessage(u))
-	case *tg.UpdateShortSentMessage:
-		return c.updateHandler.Handle(c.ctx, upconv.ShortSentMessage(u))
-	case *tg.UpdatesTooLong:
+	case *tg.UpdateShortMessage, *tg.UpdateShortChatMessage, *tg.UpdateShortSentMessage, *tg.UpdatesTooLong:
 		return c.updateHandler.Handle(c.ctx, u)
 	default:
 		c.log.Warn("Ignoring update", zap.String("update_type", fmt.Sprintf("%T", u)))
