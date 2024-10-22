@@ -60,6 +60,12 @@ func (b *Builder) Stream(ctx context.Context, output io.Writer) (tg.StorageFileT
 	return b.downloader.stream(ctx, b.reader(), output)
 }
 
+// StreamToReader streams a file to the returned [io.Reader].
+// NB: in this mode download can't be parallel.
+func (b *Builder) StreamToReader(ctx context.Context) (tg.StorageFileTypeClass, io.Reader, error) {
+	return b.downloader.streamToReader(ctx, b.reader())
+}
+
 // Parallel downloads file to given io.WriterAt.
 func (b *Builder) Parallel(ctx context.Context, output io.WriterAt) (tg.StorageFileTypeClass, error) {
 	return b.downloader.parallel(ctx, b.reader(), b.threads, output)
