@@ -56,6 +56,9 @@ func (s *internalState) saveUserHashes(ctx context.Context, chats []tg.UserClass
 			continue
 		} else if hash, ok := user.GetAccessHash(); !ok {
 			continue
+		} else if user.Min {
+			s.log.Debug("User is min, not saving access hash")
+			continue
 		} else {
 			s.log.Debug("New user access hash", zap.Int64("user_id", user.ID))
 			if err := s.hasher.SetUserAccessHash(ctx, s.selfID, user.ID, hash); err != nil {
