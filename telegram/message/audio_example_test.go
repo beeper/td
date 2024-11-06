@@ -23,7 +23,7 @@ func sendAudio(ctx context.Context) error {
 	return client.Run(ctx, func(ctx context.Context) error {
 		raw := tg.NewClient(client)
 		// Upload file.
-		f, err := uploader.NewUploader(raw).FromPath(ctx, "vsyo idyot po planu.mp3")
+		f, err := uploader.NewUploader(raw).FromPath(ctx, "vsyo idyot po planu.mp3", "")
 		if err != nil {
 			return errors.Wrap(err, "upload")
 		}

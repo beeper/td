@@ -17,15 +17,15 @@ type mockUploader struct {
 	file tg.InputFileClass
 }
 
-func (m mockUploader) FromFile(ctx context.Context, f uploader.File) (tg.InputFileClass, error) {
+func (m mockUploader) FromFile(ctx context.Context, f uploader.File, name string) (tg.InputFileClass, error) {
 	return m.file, nil
 }
 
-func (m mockUploader) FromPath(ctx context.Context, path string) (tg.InputFileClass, error) {
+func (m mockUploader) FromPath(ctx context.Context, path, name string) (tg.InputFileClass, error) {
 	return m.file, nil
 }
 
-func (m mockUploader) FromFS(ctx context.Context, filesystem fs.FS, path string) (tg.InputFileClass, error) {
+func (m mockUploader) FromFS(ctx context.Context, filesystem fs.FS, path, name string) (tg.InputFileClass, error) {
 	return m.file, nil
 }
 
@@ -61,7 +61,7 @@ func TestUpload(t *testing.T) {
 	expectSendMedia(t, &tg.InputMediaUploadedPhoto{
 		File: f,
 	}, mock)
-	_, err := dialog.Upload(FromPath("abc.jpg")).Photo(ctx)
+	_, err := dialog.Upload(FromPath("abc.jpg", "")).Photo(ctx)
 	require.NoError(t, err)
 
 	expectSendMedia(t, &tg.InputMediaUploadedDocument{
@@ -75,7 +75,7 @@ func TestUpload(t *testing.T) {
 		File:      f,
 		ForceFile: true,
 	}, mock)
-	_, err = dialog.Upload(FromFS(nil, "abc.jpg")).File(ctx)
+	_, err = dialog.Upload(FromFS(nil, "abc.jpg", "")).File(ctx)
 	require.NoError(t, err)
 
 	expectSendMedia(t, &tg.InputMediaUploadedDocument{
