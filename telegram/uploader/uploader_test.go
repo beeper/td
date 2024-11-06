@@ -166,7 +166,7 @@ func TestUploader(t *testing.T) {
 				"10.jpg": &fstest.MapFile{
 					Data: data,
 				},
-			}, "10.jpg")
+			}, "10.jpg", "")
 			return err
 		}},
 		{"FromURL", func(b *Uploader, data []byte) error {

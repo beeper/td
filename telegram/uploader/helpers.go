@@ -24,18 +24,22 @@ type File interface {
 
 // FromFile uploads given File.
 // NB: FromFile does not close given file.
-func (u *Uploader) FromFile(ctx context.Context, f File) (tg.InputFileClass, error) {
+func (u *Uploader) FromFile(ctx context.Context, f File, name string) (tg.InputFileClass, error) {
 	info, err := f.Stat()
 	if err != nil {
 		return nil, errors.Wrap(err, "stat")
 	}
 
-	return u.Upload(ctx, NewUpload(info.Name(), f, info.Size()))
+	if name == "" {
+		name = info.Name()
+	}
+
+	return u.Upload(ctx, NewUpload(name, f, info.Size()))
 }
 
 // FromPath uploads file from given path.
-func (u *Uploader) FromPath(ctx context.Context, path string) (tg.InputFileClass, error) {
-	return u.FromFS(ctx, osFS{}, path)
+func (u *Uploader) FromPath(ctx context.Context, path, name string) (tg.InputFileClass, error) {
+	return u.FromFS(ctx, osFS{}, path, name)
 }
 
 type osFS struct{}
@@ -45,7 +49,7 @@ func (o osFS) Open(name string) (fs.File, error) {
 }
 
 // FromFS uploads file from fs using given path.
-func (u *Uploader) FromFS(ctx context.Context, filesystem fs.FS, path string) (_ tg.InputFileClass, err error) {
+func (u *Uploader) FromFS(ctx context.Context, filesystem fs.FS, path, name string) (_ tg.InputFileClass, err error) {
 	f, err := filesystem.Open(path)
 	if err != nil {
 		return nil, errors.Wrap(err, "open")
@@ -54,7 +58,7 @@ func (u *Uploader) FromFS(ctx context.Context, filesystem fs.FS, path string) (_
 		multierr.AppendInto(&err, f.Close())
 	}()
 
-	return u.FromFile(ctx, f)
+	return u.FromFile(ctx, f, name)
 }
 
 // FromReader uploads file from given io.Reader.

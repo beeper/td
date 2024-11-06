@@ -14,9 +14,9 @@ import (
 
 // Uploader is an abstraction for Telegram file uploader.
 type Uploader interface {
-	FromFile(ctx context.Context, f uploader.File) (tg.InputFileClass, error)
-	FromPath(ctx context.Context, path string) (tg.InputFileClass, error)
-	FromFS(ctx context.Context, filesystem fs.FS, path string) (tg.InputFileClass, error)
+	FromFile(ctx context.Context, f uploader.File, name string) (tg.InputFileClass, error)
+	FromPath(ctx context.Context, path, name string) (tg.InputFileClass, error)
+	FromFS(ctx context.Context, filesystem fs.FS, path, name string) (tg.InputFileClass, error)
 	FromReader(ctx context.Context, name string, f io.Reader) (tg.InputFileClass, error)
 	FromBytes(ctx context.Context, name string, b []byte) (tg.InputFileClass, error)
 	FromURL(ctx context.Context, rawURL string) (tg.InputFileClass, error)
@@ -74,21 +74,21 @@ func Upload(promise FilePromise) UploadOption {
 // NB: FromFile does not close given file.
 func FromFile(f uploader.File) UploadOption {
 	return Upload(func(ctx context.Context, b Uploader) (tg.InputFileClass, error) {
-		return b.FromFile(ctx, f)
+		return b.FromFile(ctx, f, "")
 	})
 }
 
 // FromPath uploads file from given path.
-func FromPath(path string) UploadOption {
+func FromPath(path, name string) UploadOption {
 	return Upload(func(ctx context.Context, b Uploader) (tg.InputFileClass, error) {
-		return b.FromPath(ctx, path)
+		return b.FromPath(ctx, path, name)
 	})
 }
 
 // FromFS uploads file from given path using given fs.FS.
-func FromFS(filesystem fs.FS, path string) UploadOption {
+func FromFS(filesystem fs.FS, path, name string) UploadOption {
 	return Upload(func(ctx context.Context, b Uploader) (tg.InputFileClass, error) {
-		return b.FromFS(ctx, filesystem, path)
+		return b.FromFS(ctx, filesystem, path, name)
 	})
 }
 

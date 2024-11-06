@@ -25,7 +25,7 @@ func filePromiseResult(ctx context.Context) error {
 
 		var result tg.InputFileClass
 		_, err := r.Upload(message.Upload(func(ctx context.Context, b message.Uploader) (tg.InputFileClass, error) {
-			r, err := b.FromPath(ctx, "file.jpg")
+			r, err := b.FromPath(ctx, "file.jpg", "")
 			if err != nil {
 				return nil, err
 			}

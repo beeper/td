@@ -22,7 +22,7 @@ func sendGif(ctx context.Context) error {
 
 		// Uploads and sends gif to the @durovschat.
 		if _, err := sender.Resolve("https://t.me/durovschat").
-			Upload(message.FromPath("./rickroll.gif")).
+			Upload(message.FromPath("./rickroll.gif", "")).
 			GIF(ctx); err != nil {
 			return err
 		}
