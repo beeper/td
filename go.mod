@@ -1,6 +1,6 @@
 module github.com/gotd/td
 
-go 1.23.3
+go 1.22.0
 
 require (
 	github.com/cenkalti/backoff/v4 v4.3.0
