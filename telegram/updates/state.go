@@ -361,7 +361,7 @@ func (s *internalState) handleChannel(ctx context.Context, channelID int64, date
 			if !found {
 				s.log.Debug("Failed to recover missing access hash, update ignored",
 					zap.Int64("channel_id", channelID),
-					zap.Any("update", cu.update),
+					// zap.Any("update", cu.update),
 				)
 				return nil
 			}

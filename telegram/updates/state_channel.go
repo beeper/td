@@ -222,7 +222,7 @@ func (s *channelState) getDifference(ctx context.Context) error {
 				select {
 				case <-afterC:
 					return nil
-				case u, ok := <-s.updates:
+				case _, ok := <-s.updates:
 					if !ok {
 						continue
 					}
@@ -230,7 +230,7 @@ func (s *channelState) getDifference(ctx context.Context) error {
 					// Ignoring updates to prevent *internalState worker from blocking.
 					// All ignored updates should be restored by future getChannelDifference call.
 					// At least I hope so...
-					s.log.Debug("Ignoring update due to getChannelDifference timeout", zap.Any("update", u.update))
+					s.log.Debug("Ignoring update due to getChannelDifference timeout") // , zap.Any("update", u.update))
 				case <-ctx.Done():
 					return ctx.Err()
 				}

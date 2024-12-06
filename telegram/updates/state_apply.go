@@ -74,7 +74,7 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 
 		if channelID, pts, ptsCount, ok, err := tg.IsChannelPtsUpdate(u); ok {
 			if err != nil {
-				s.log.Debug("Invalid channel update", zap.Error(err), zap.Any("update", u))
+				s.log.Debug("Invalid channel update", zap.Error(err)) //, zap.Any("update", u))
 				continue
 			}
 			if err := s.handleChannel(ctx, channelID, comb.Date, pts, ptsCount, channelUpdate{
