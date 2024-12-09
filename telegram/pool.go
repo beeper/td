@@ -87,7 +87,6 @@ func (c *Client) dc(ctx context.Context, dcID int, max int64, dialer mtproto.Dia
 				DC:      dcID,
 				Device:  c.device,
 				Handler: c.asHandler(),
-				OnDead:  c.onDead,
 			},
 		)
 	})
