@@ -41,7 +41,7 @@ func (c *Conn) Invoke(ctx context.Context, input bin.Encoder, output bin.Decoder
 			c.log.Info("Retrying request after basMsgErr", zap.Int64("msg_id", req.MsgID))
 			return c.rpc.Do(ctx, req)
 		}
-		return errors.Wrap(err, "rpcDoRequest")
+		return err
 	}
 
 	return nil
