@@ -22,8 +22,7 @@ func (c Cipher) DecryptFromBuffer(k AuthKey, buf *bin.Buffer) (*EncryptedMessage
 	return c.Decrypt(k, msg)
 }
 
-// Decrypt decrypts data from encrypted message using AES-IGE.
-func (c Cipher) Decrypt(k AuthKey, encrypted *EncryptedMessage) (*EncryptedMessageData, error) {
+func (c Cipher) DecryptRaw(k AuthKey, encrypted *EncryptedMessage) ([]byte, error) {
 	plaintext, err := c.decryptMessage(k, encrypted)
 	if err != nil {
 		return nil, err
@@ -34,6 +33,15 @@ func (c Cipher) Decrypt(k AuthKey, encrypted *EncryptedMessage) (*EncryptedMessa
 	msgKey := MessageKey(k.Value, plaintext, side)
 	if msgKey != encrypted.MsgKey {
 		return nil, errors.New("msg_key is invalid")
+	}
+	return plaintext, nil
+}
+
+// Decrypt decrypts data from encrypted message using AES-IGE.
+func (c Cipher) Decrypt(k AuthKey, encrypted *EncryptedMessage) (*EncryptedMessageData, error) {
+	plaintext, err := c.DecryptRaw(k, encrypted)
+	if err != nil {
+		return nil, err
 	}
 
 	msg := &EncryptedMessageData{}
