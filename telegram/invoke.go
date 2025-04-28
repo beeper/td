@@ -52,6 +52,15 @@ func (c *Client) Invoke(ctx context.Context, input bin.Encoder, output bin.Decod
 
 // invokeDirect directly invokes RPC method, automatically handling datacenter redirects.
 func (c *Client) invokeDirect(ctx context.Context, input bin.Encoder, output bin.Decoder) error {
+	contextDC, _ := ctx.Value("tg_dc").(*int)
+
+	if _, ok := ctx.Value("tg_dc_inner").(bool); !ok {
+		if contextDC != nil && *contextDC > 0 {
+			c.log.With(zap.Int("context_dc", *contextDC)).Debug("Invoking on context DC")
+			return c.invokeSub(ctx, *contextDC, input, output)
+		}
+	}
+
 	if err := c.invokeConn(ctx, input, output); err != nil {
 		// Handling datacenter migration request.
 		if rpcErr, ok := tgerr.As(err); ok && strings.HasSuffix(rpcErr.Type, "_MIGRATE") {
@@ -65,6 +74,11 @@ func (c *Client) invokeDirect(ctx context.Context, input bin.Encoder, output bin
 			// and create new connection.
 			if rpcErr.IsOneOf("FILE_MIGRATE", "STATS_MIGRATE") {
 				log.Debug("Invoking on target DC")
+				if contextDC != nil {
+					log.Debug("Setting context DC")
+					*contextDC = targetDC
+					ctx = context.WithValue(ctx, "tg_dc_inner", true)
+				}
 				return c.invokeSub(ctx, targetDC, input, output)
 			}
 
