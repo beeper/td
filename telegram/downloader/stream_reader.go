@@ -45,5 +45,5 @@ func (d *Downloader) streamToReader(ctx context.Context, r *reader) (tg.StorageF
 	if err != nil {
 		return nil, nil, err
 	}
-	return first.tag, &streamReader{ctx, r, first, false}, nil
+	return first.tag, &streamReader{ctx, r, first, first.last()}, nil
 }
