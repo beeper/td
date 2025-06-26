@@ -50,7 +50,7 @@ type internalState struct {
 	client    API
 	log       *zap.Logger
 	handler   telegram.UpdateHandler
-	onTooLong func(channelID int64)
+	onTooLong func(channelID int64) error
 	storage   StateStorage
 	hasher    AccessHasher
 	selfID    int64
@@ -69,7 +69,7 @@ type stateConfig struct {
 	Logger           *zap.Logger
 	Tracer           trace.Tracer
 	Handler          telegram.UpdateHandler
-	OnChannelTooLong func(channelID int64)
+	OnChannelTooLong func(channelID int64) error
 	Storage          StateStorage
 	Hasher           AccessHasher
 	SelfID           int64
@@ -176,18 +176,12 @@ func (s *internalState) Run(ctx context.Context) error {
 		case u := <-s.externalQueue:
 			ctx := trace.ContextWithSpanContext(ctx, u.span)
 			if err := s.handleUpdates(ctx, u.update); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
-				if isFatalError(err) {
-					return errors.Wrap(err, "fatal error")
-				}
+				return err
 			}
 		case u := <-s.internalQueue:
 			ctx := trace.ContextWithSpanContext(ctx, u.span)
 			if err := s.handleUpdates(ctx, u.update); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
-				if isFatalError(err) {
-					return errors.Wrap(err, "fatal error")
-				}
+				return err
 			}
 		case <-s.pts.gapTimeout.C:
 			s.log.Debug("Pts gap timeout")
@@ -461,7 +455,7 @@ func (s *internalState) getDifference(ctx context.Context) error {
 				Users: diff.Users,
 				Chats: diff.Chats,
 			}); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
+				return err
 			}
 		}
 
@@ -487,7 +481,7 @@ func (s *internalState) getDifference(ctx context.Context) error {
 				Chats:   diff.Chats,
 				Date:    diff.IntermediateState.Date,
 			}); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
+				return err
 			}
 		}
 
@@ -500,7 +494,7 @@ func (s *internalState) getDifference(ctx context.Context) error {
 				Users: diff.Users,
 				Chats: diff.Chats,
 			}); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
+				return err
 			}
 		}
 
