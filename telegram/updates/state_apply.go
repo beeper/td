@@ -23,7 +23,7 @@ func (s *internalState) applySeq(ctx context.Context, state int, updates []updat
 	}
 
 	if err := s.storage.SetSeq(ctx, s.selfID, state); err != nil {
-		s.log.Error("SetSeq error", zap.Error(err))
+		return err
 	}
 
 	if recoverState {
@@ -61,7 +61,7 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 				entities: ents,
 				span:     trace.SpanContextFromContext(ctx),
 			}); err != nil {
-				s.log.Error("Push channel update error", zap.Error(err))
+				return false, err
 			}
 			continue
 		}
@@ -82,7 +82,7 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 				entities: ents,
 				span:     trace.SpanContextFromContext(ctx),
 			}); err != nil {
-				s.log.Error("Handle channel update error", zap.Error(err))
+				return false, err
 			}
 		}
 
@@ -98,26 +98,26 @@ func (s *internalState) applyCombined(ctx context.Context, comb *tg.UpdatesCombi
 		Users:   ents.Users,
 		Chats:   ents.Chats,
 	}); err != nil {
-		s.log.Error("Handle updates error", zap.Error(err))
+		return false, err
 	}
 
 	setDate, setSeq := comb.Date > s.date, comb.Seq > 0
 	switch {
 	case setDate && setSeq:
 		if err := s.storage.SetDateSeq(ctx, s.selfID, comb.Date, comb.Seq); err != nil {
-			s.log.Error("SetDateSeq error", zap.Error(err))
+			return false, err
 		}
 
 		s.date = comb.Date
 		s.seq.SetState(comb.Seq, "seq update")
 	case setDate:
 		if err := s.storage.SetDate(ctx, s.selfID, comb.Date); err != nil {
-			s.log.Error("SetDate error", zap.Error(err))
+			return false, err
 		}
 		s.date = comb.Date
 	case setSeq:
 		if err := s.storage.SetSeq(ctx, s.selfID, comb.Seq); err != nil {
-			s.log.Error("SetSeq error", zap.Error(err))
+			return false, err
 		}
 		s.seq.SetState(comb.Seq, "seq update")
 	}
@@ -144,11 +144,11 @@ func (s *internalState) applyPts(ctx context.Context, state int, updates []updat
 		Users:   ents.Users,
 		Chats:   ents.Chats,
 	}); err != nil {
-		s.log.Error("Handle updates error", zap.Error(err))
+		return err
 	}
 
 	if err := s.storage.SetPts(ctx, s.selfID, state); err != nil {
-		s.log.Error("SetPts error", zap.Error(err))
+		return err
 	}
 
 	return nil
@@ -173,7 +173,7 @@ func (s *internalState) applyQts(ctx context.Context, state int, updates []updat
 		Users:   ents.Users,
 		Chats:   ents.Chats,
 	}); err != nil {
-		s.log.Error("Handle updates error", zap.Error(err))
+		return err
 	}
 
 	// Don't set qts if it's 0, because it means that we are apllying gaps updates
@@ -182,7 +182,7 @@ func (s *internalState) applyQts(ctx context.Context, state int, updates []updat
 	}
 
 	if err := s.storage.SetQts(ctx, s.selfID, state); err != nil {
-		s.log.Error("SetQts error", zap.Error(err))
+		return err
 	}
 
 	return nil

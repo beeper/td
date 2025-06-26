@@ -24,7 +24,7 @@ type Config struct {
 	Handler telegram.UpdateHandler
 	// Callback called if manager cannot
 	// recover channel gap (optional).
-	OnChannelTooLong func(channelID int64)
+	OnChannelTooLong func(channelID int64) error
 	// State storage.
 	// In-mem used if not provided.
 	Storage StateStorage
@@ -54,8 +54,9 @@ func (cfg *Config) setDefaults() {
 		cfg.Storage = newMemStorage()
 	}
 	if cfg.OnChannelTooLong == nil {
-		cfg.OnChannelTooLong = func(channelID int64) {
+		cfg.OnChannelTooLong = func(channelID int64) error {
 			cfg.Logger.Error("Difference too long", zap.Int64("channel_id", channelID))
+			return nil
 		}
 	}
 }

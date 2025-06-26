@@ -39,7 +39,7 @@ type channelState struct {
 	log        *zap.Logger
 	tracer     trace.Tracer
 	handler    telegram.UpdateHandler
-	onTooLong  func(channelID int64)
+	onTooLong  func(channelID int64) error
 }
 
 type channelStateConfig struct {
@@ -52,7 +52,7 @@ type channelStateConfig struct {
 	RawClient        API
 	Storage          StateStorage
 	Handler          telegram.UpdateHandler
-	OnChannelTooLong func(channelID int64)
+	OnChannelTooLong func(channelID int64) error
 	Logger           *zap.Logger
 	Tracer           trace.Tracer
 }
@@ -169,8 +169,7 @@ func (s *channelState) handleTooLong(ctx context.Context, long *tg.UpdateChannel
 	// Note: we still can fetch latest diffLim updates.
 	// Should we do?
 	if remotePts-s.pts.State() > s.diffLim {
-		s.onTooLong(s.channelID)
-		return nil
+		return s.onTooLong(s.channelID)
 	}
 
 	return s.getDifference(ctx)
@@ -276,7 +275,7 @@ func (s *channelState) getDifference(ctx context.Context) error {
 				Users:   diff.Users,
 				Chats:   diff.Chats,
 			}); err != nil {
-				s.log.Error("Handle updates error", zap.Error(err))
+				return err
 			}
 		}
 
@@ -323,8 +322,7 @@ func (s *channelState) getDifference(ctx context.Context) error {
 			s.pts.SetState(remotePts, "updates.channelDifferenceTooLong dialog new pts")
 		}
 
-		s.onTooLong(s.channelID)
-		return nil
+		return s.onTooLong(s.channelID)
 
 	default:
 		return errors.Errorf("unexpected channel diff type: %T", diff)
