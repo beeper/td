@@ -3,7 +3,7 @@ package deeplink
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/ascii"
+	"github.com/beeper/td/ascii"
 )
 
 // ValidateDomain validate given domain (user) name

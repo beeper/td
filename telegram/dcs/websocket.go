@@ -7,12 +7,12 @@ import (
 	"github.com/coder/websocket"
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/mtproxy"
-	"github.com/gotd/td/mtproxy/obfuscator"
-	"github.com/gotd/td/proto/codec"
-	"github.com/gotd/td/transport"
-	"github.com/gotd/td/wsutil"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/mtproxy"
+	"github.com/beeper/td/mtproxy/obfuscator"
+	"github.com/beeper/td/proto/codec"
+	"github.com/beeper/td/transport"
+	"github.com/beeper/td/wsutil"
 )
 
 var _ Resolver = ws{}

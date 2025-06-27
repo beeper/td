@@ -12,7 +12,7 @@ import (
 	"github.com/go-faster/xor"
 	"github.com/gotd/ige"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 func reverseBytes(s []byte) {

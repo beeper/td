@@ -9,11 +9,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/telegram/auth/qrlogin"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/telegram/auth/qrlogin"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/tg"
 )
 
 func ExampleClient_Auth_codeOnly() {

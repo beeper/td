@@ -9,10 +9,10 @@ import (
 	"go.uber.org/multierr"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/exchange"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/exchange"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/tgerr"
 )
 
 func (c *Client) runUntilRestart(ctx context.Context) error {

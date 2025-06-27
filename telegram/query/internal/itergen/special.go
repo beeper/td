@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/telegram/query/internal/genutil"
+	"github.com/beeper/td/telegram/query/internal/genutil"
 )
 
 func (c *collector) unpackClass(

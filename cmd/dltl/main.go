@@ -15,7 +15,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/gotd/tl"
+	"github.com/beeper/tl"
 )
 
 func mergeSchema(target, s *tl.Schema) {

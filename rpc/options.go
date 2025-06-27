@@ -5,7 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/clock"
+	"github.com/beeper/td/clock"
 )
 
 // Options of rpc engine.

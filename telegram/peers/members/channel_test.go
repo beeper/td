@@ -7,8 +7,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/tg"
 )
 
 func TestChannelMembers_Count(t *testing.T) {

@@ -1,6 +1,6 @@
 package markup
 
-import "github.com/gotd/td/tg"
+import "github.com/beeper/td/tg"
 
 // InlineRow creates inline keyboard with single row using given buttons.
 func InlineRow(buttons ...tg.KeyboardButtonClass) tg.ReplyMarkupClass {

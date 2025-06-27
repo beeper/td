@@ -10,8 +10,8 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/transport"
 )
 
 func FuzzValid(f *testing.F) {

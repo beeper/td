@@ -8,10 +8,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/gotd/td/telegram"
+	"github.com/beeper/td/telegram"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/tg"
 )
 
 func TestUpdateHook_InvokeRaw(t *testing.T) {

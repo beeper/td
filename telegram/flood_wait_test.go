@@ -7,8 +7,8 @@ import (
 	"github.com/go-faster/errors"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/tgerr"
 )
 
 func TestAsFloodWait(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 type logType struct {

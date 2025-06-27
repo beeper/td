@@ -4,7 +4,7 @@ import (
 	"github.com/go-faster/errors"
 	"github.com/go-faster/jx"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // Decode decodes JSON and converts it to tg.JSONValueClass.

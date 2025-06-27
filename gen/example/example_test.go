@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/tmap"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/tmap"
 )
 
 func BenchmarkMessage_Encode(b *testing.B) {

@@ -7,7 +7,7 @@ import (
 	"go.uber.org/multierr"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/exchange"
+	"github.com/beeper/td/exchange"
 )
 
 // connect establishes connection using configured transport, creating

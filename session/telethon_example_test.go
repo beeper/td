@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/gotd/td/session"
-	"github.com/gotd/td/telegram"
+	"github.com/beeper/td/session"
+	"github.com/beeper/td/telegram"
 )
 
 func ExampleTelethonSession() {

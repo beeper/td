@@ -1,7 +1,7 @@
 package styling
 
 import (
-	"github.com/gotd/td/telegram/message/entity"
+	"github.com/beeper/td/telegram/message/entity"
 )
 
 // StyledTextOption is an option for styling text.
@@ -40,4 +40,4 @@ func Custom(cb func(eb *entity.Builder) error) StyledTextOption {
 	}
 }
 
-//go:generate go run github.com/gotd/td/telegram/message/internal/mkentity -template styling -output options.gen.go
+//go:generate go run github.com/beeper/td/telegram/message/internal/mkentity -template styling -output options.gen.go

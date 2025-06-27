@@ -12,8 +12,8 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/multierr"
 
-	"github.com/gotd/td/telegram/uploader/source"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/uploader/source"
+	"github.com/beeper/td/tg"
 )
 
 // File is file abstraction.

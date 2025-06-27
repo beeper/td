@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/proto/codec"
+	"github.com/beeper/td/proto/codec"
 )
 
 func detectCodec(c io.Reader) (Codec, io.Reader, error) {

@@ -5,8 +5,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/constant"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/constant"
+	"github.com/beeper/td/tg"
 )
 
 // Available MTProto default server addresses.

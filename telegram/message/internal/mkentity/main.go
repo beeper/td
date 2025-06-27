@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tdp"
-	"github.com/gotd/td/telegram/message/internal/mkrun"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tdp"
+	"github.com/beeper/td/telegram/message/internal/mkrun"
+	"github.com/beeper/td/tg"
 )
 
 // Field represents type field.

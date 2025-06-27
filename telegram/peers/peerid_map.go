@@ -1,7 +1,7 @@
 package peers
 
 import (
-	"github.com/gotd/td/constant"
+	"github.com/beeper/td/constant"
 )
 
 type peerIDSet struct {

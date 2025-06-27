@@ -6,7 +6,7 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/clock"
+	"github.com/beeper/td/clock"
 )
 
 // LogGroup is simple wrapper around CancellableGroup to log task state.

@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/gotd/td/clock"
+	"github.com/beeper/td/clock"
 )
 
 // ErrPremiumFloodWait is error type of "FLOOD_PREMIUM_WAIT" error.

@@ -3,7 +3,7 @@ package transport
 import (
 	"io"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // Codec is MTProto transport protocol encoding abstraction.

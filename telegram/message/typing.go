@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // TypingActionBuilder is a helper to create and send typing actions.
@@ -52,7 +52,7 @@ func (b *TypingActionBuilder) Custom(ctx context.Context, action tg.SendMessageA
 	return b.send(ctx, action)
 }
 
-//go:generate go run github.com/gotd/td/telegram/message/internal/mktyping -output typing.gen.go
+//go:generate go run github.com/beeper/td/telegram/message/internal/mktyping -output typing.gen.go
 
 // TypingAction creates TypingActionBuilder.
 func (b *RequestBuilder) TypingAction() *TypingActionBuilder {

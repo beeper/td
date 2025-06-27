@@ -16,10 +16,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/atomic"
 
-	"github.com/gotd/td/syncio"
-	"github.com/gotd/td/telegram/uploader/source"
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/syncio"
+	"github.com/beeper/td/telegram/uploader/source"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/tg"
 )
 
 type mockClient struct {

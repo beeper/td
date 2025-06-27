@@ -10,12 +10,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/message"
-	"github.com/gotd/td/telegram/message/html"
-	"github.com/gotd/td/telegram/uploader"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/message"
+	"github.com/beeper/td/telegram/message/html"
+	"github.com/beeper/td/telegram/uploader"
+	"github.com/beeper/td/tg"
 )
 
 func main() {

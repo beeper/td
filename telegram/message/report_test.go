@@ -8,10 +8,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgmock"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgmock"
 )
 
 func expectSendReport(t *testing.T, option []byte, mock *tgmock.Mock, id int, msg string) {

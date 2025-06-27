@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
 )
 
 // PaddedIntermediateClientStart is starting bytes sent by client in Padded intermediate mode.

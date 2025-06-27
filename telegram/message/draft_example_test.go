@@ -8,10 +8,10 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/message"
-	"github.com/gotd/td/telegram/message/styling"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/message"
+	"github.com/beeper/td/telegram/message/styling"
+	"github.com/beeper/td/tg"
 )
 
 func saveDraft(ctx context.Context) error {

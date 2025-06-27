@@ -9,7 +9,7 @@ import (
 
 	"github.com/gotd/neo"
 
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/testutil"
 )
 
 func TestMessageID(t *testing.T) {

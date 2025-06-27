@@ -10,9 +10,9 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/transport"
 )
 
 // Up runs all servers in a cluster.

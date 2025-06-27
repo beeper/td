@@ -10,11 +10,11 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/gotd/td/exchange"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/exchange"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
 )
 
 const (

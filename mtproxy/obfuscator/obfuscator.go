@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/mtproxy"
-	"github.com/gotd/td/mtproxy/faketls"
-	"github.com/gotd/td/mtproxy/obfuscated2"
+	"github.com/beeper/td/mtproxy"
+	"github.com/beeper/td/mtproxy/faketls"
+	"github.com/beeper/td/mtproxy/obfuscated2"
 )
 
 // Obfuscator represents MTProxy obfuscator.

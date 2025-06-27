@@ -3,8 +3,8 @@ package manager
 import (
 	"runtime"
 
-	"github.com/gotd/td/telegram/internal/version"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/internal/version"
+	"github.com/beeper/td/tg"
 )
 
 // DeviceConfig is config which send when Telegram connection session created.

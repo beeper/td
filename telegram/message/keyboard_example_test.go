@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/message"
-	"github.com/gotd/td/telegram/message/markup"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/message"
+	"github.com/beeper/td/telegram/message/markup"
+	"github.com/beeper/td/tg"
 )
 
 func sendKeyboard(ctx context.Context) error {
@@ -24,7 +24,7 @@ func sendKeyboard(ctx context.Context) error {
 		// Uploads and sends keyboard result to the @durovschat.
 		if _, err := sender.Resolve("@durovschat").Row(
 			markup.URL("Blue", "https://github.com/xelaj/mtproto"),
-			markup.URL("Red", "https://github.com/gotd/td"),
+			markup.URL("Red", "https://github.com/beeper/td"),
 		).Text(ctx, "Choose the pill"); err != nil {
 			return err
 		}

@@ -1,6 +1,6 @@
 package e2e
 
-import "github.com/gotd/td/tg"
+import "github.com/beeper/td/tg"
 
 // Entities contains update entities.
 type Entities struct {

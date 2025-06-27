@@ -5,10 +5,10 @@ import (
 
 	"go.uber.org/multierr"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/message/entity"
-	"github.com/gotd/td/telegram/updates"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/message/entity"
+	"github.com/beeper/td/telegram/updates"
+	"github.com/beeper/td/tg"
 )
 
 var _ updates.AccessHasher = (*Manager)(nil)

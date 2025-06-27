@@ -8,11 +8,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/tdp"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/tdp"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/tg"
 )
 
 // prettyMiddleware pretty-prints request and response.

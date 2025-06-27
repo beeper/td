@@ -9,7 +9,7 @@ import (
 	"github.com/k0kubun/pp/v3"
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 func FuzzDecodeEncodeDecode(f *testing.F) {

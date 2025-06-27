@@ -3,7 +3,7 @@ package proto
 import (
 	"testing"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 
 	"github.com/stretchr/testify/require"
 )

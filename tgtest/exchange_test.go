@@ -8,10 +8,10 @@ import (
 	"github.com/go-faster/errors"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/proto/codec"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/proto/codec"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/transport"
 )
 
 func Test_exchangeConn_Recv(t *testing.T) {

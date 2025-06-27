@@ -3,7 +3,7 @@ package qrlogin
 import (
 	"fmt"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // MigrationNeededError reports that Telegram requested DC migration to continue login.

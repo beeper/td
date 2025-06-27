@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 type testTransportHandler struct {

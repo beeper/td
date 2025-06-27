@@ -3,7 +3,7 @@ package uploader
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/constant"
+	"github.com/beeper/td/constant"
 )
 
 // https://core.telegram.org/api/files#uploading-files

@@ -3,7 +3,7 @@ package mtproto
 import (
 	"context"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 func (c *Conn) writeContentMessage(ctx context.Context, msgID int64, seqNo int32, message bin.Encoder) error {

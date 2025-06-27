@@ -1,8 +1,8 @@
 package peers
 
 import (
-	"github.com/gotd/td/constant"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/constant"
+	"github.com/beeper/td/tg"
 )
 
 func userPeerID(id int64) (r constant.TDLibPeerID) {

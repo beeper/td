@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/telegram/message"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/telegram/message"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
 )
 
 // User is a simple user bot.

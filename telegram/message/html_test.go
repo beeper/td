@@ -6,10 +6,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/telegram/message/entity"
-	"github.com/gotd/td/telegram/message/html"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/telegram/message/entity"
+	"github.com/beeper/td/telegram/message/html"
+	"github.com/beeper/td/tg"
 )
 
 func TestHTMLBuilder_String(t *testing.T) {

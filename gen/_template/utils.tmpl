@@ -19,23 +19,23 @@
 {{- end }}
 
 {{ define "print_type" }}
-{{- /*gotype: github.com/gotd/td/gen.fieldDef*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.fieldDef*/ -}}
 {{- if $.DoubleSlice }}[][]{{ $.Type }}
 {{- else if $.Slice }}[]{{ $.Type }}
 {{- else }}{{ $.Type }}
 {{- end }}{{- end }}
 
-{{ define "getter_func_type" }}{{- /*gotype: github.com/gotd/td/gen.fieldDef*/ -}}
+{{ define "getter_func_type" }}{{- /*gotype: github.com/beeper/td/gen.fieldDef*/ -}}
 Get{{$.Name}}() (value {{ template "print_type" $ }}{{ if and ($.Conditional) (not $.ConditionalBool) }}, ok bool{{ end }})
 {{- end }}
 
 {{ define "print_mapper_type" }}{{ $mapping := . -}}
-{{- /*gotype: github.com/gotd/td/gen.constructorMapping*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.constructorMapping*/ -}}
 {{- if not ($mapping.Concrete) }}{{ $mapping.Name }}{{- else }}*{{ $mapping.Name }}{{- end -}}
 {{ end }}
 
 {{ define "mapper_func_type" }}{{ $mapping := . -}}
-{{- /*gotype: github.com/gotd/td/gen.constructorMapping*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.constructorMapping*/ -}}
 {{- if $mapping.Fields }}As{{ $mapping.MapperName }}() {{ template "print_mapper_type" $mapping }}
 {{- else }}As{{ $mapping.MapperName }}() ({{ template "print_mapper_type" $mapping }}, bool)
 {{- end }}{{- end }}
@@ -63,7 +63,7 @@ Get{{$.Name}}() (value {{ template "print_type" $ }}{{ if and ($.Conditional) (n
 {{- end }}
 
 {{ define "class_interface_header" }}{{ $f := . }}
-{{- /*gotype: github.com/gotd/td/gen.interfaceDef*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.interfaceDef*/ -}}
     bin.Encoder
     bin.Decoder
     bin.BareEncoder
@@ -83,6 +83,6 @@ Get{{$.Name}}() (value {{ template "print_type" $ }}{{ if and ($.Conditional) (n
 {{- end }}
 
 
-{{ define "map_collector_name" }}{{ $field := . }}{{- /*gotype: github.com/gotd/td/gen.fieldDef*/ -}}
+{{ define "map_collector_name" }}{{ $field := . }}{{- /*gotype: github.com/beeper/td/gen.fieldDef*/ -}}
 {{ if ne ($field.Name) ("ID") }}{{ $field.Name }}{{ end }}
 {{- end }}

@@ -9,9 +9,9 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
 )
 
 // API returns *tg.Client for calling raw MTProto methods.

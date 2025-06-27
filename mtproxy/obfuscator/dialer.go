@@ -4,7 +4,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/gotd/td/mtproxy/obfuscated2"
+	"github.com/beeper/td/mtproxy/obfuscated2"
 )
 
 // Conn is net.Conn wrapper to use Obfuscator.

@@ -7,13 +7,13 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/clock"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/exchange"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/rpc"
-	"github.com/gotd/td/tmap"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/clock"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/exchange"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/rpc"
+	"github.com/beeper/td/tmap"
 )
 
 // Options of Conn.

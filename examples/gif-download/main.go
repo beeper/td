@@ -11,19 +11,19 @@ import (
 	"time"
 
 	"github.com/go-faster/errors"
-	"github.com/gotd/contrib/middleware/ratelimit"
+	"github.com/beeper/contrib/middleware/ratelimit"
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"golang.org/x/sync/errgroup"
 	"golang.org/x/time/rate"
 
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/telegram/downloader"
-	"github.com/gotd/td/telegram/query/hasher"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/telegram/downloader"
+	"github.com/beeper/td/telegram/query/hasher"
+	"github.com/beeper/td/tg"
 )
 
 func run(ctx context.Context) error {

@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/gen"
+	"github.com/beeper/td/gen"
 )
 
 // WriteTemplate loads template from FS and executes it to given output writer.

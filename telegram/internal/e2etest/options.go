@@ -5,8 +5,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/constant"
-	"github.com/gotd/td/crypto"
+	"github.com/beeper/td/constant"
+	"github.com/beeper/td/crypto"
 )
 
 // TestOptions contains some common test server settings.

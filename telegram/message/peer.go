@@ -6,8 +6,8 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/atomic"
 
-	"github.com/gotd/td/telegram/message/peer"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/message/peer"
+	"github.com/beeper/td/tg"
 )
 
 type resolvedCache atomic.Value

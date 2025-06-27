@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mtproto"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mtproto"
+	"github.com/beeper/td/tg"
 )
 
 // Handler abstracts updates and session handler.

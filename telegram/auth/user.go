@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
 )
 
 // ErrPasswordInvalid means that password provided to Password is invalid.

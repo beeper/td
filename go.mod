@@ -1,4 +1,4 @@
-module github.com/gotd/td
+module github.com/beeper/td
 
 go 1.22.0
 

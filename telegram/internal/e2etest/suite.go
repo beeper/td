@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/dcs"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/dcs"
 )
 
 // Suite is struct which contains external E2E test parameters.

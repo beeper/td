@@ -10,7 +10,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/gotd/td/keyparser"
+	"github.com/beeper/td/keyparser"
 )
 
 func main() {

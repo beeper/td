@@ -4,7 +4,7 @@ import (
 	"context"
 	"io"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 type streamReader struct {

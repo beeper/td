@@ -3,7 +3,7 @@ package srp
 import (
 	"math/big"
 
-	"github.com/gotd/td/crypto"
+	"github.com/beeper/td/crypto"
 )
 
 func (s SRP) pad256FromBig(i *big.Int) (b [256]byte, r bool) {

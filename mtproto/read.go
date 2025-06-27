@@ -10,10 +10,10 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/proto/codec"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/proto/codec"
 )
 
 // https://core.telegram.org/mtproto/description#message-identifier-msg-id

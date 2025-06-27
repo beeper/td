@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/proto/codec"
+	"github.com/beeper/td/proto/codec"
 )
 
 func Test_detectCodec(t *testing.T) {

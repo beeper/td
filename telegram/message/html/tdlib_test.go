@@ -1,6 +1,6 @@
 package html
 
-import "github.com/gotd/td/tg"
+import "github.com/beeper/td/tg"
 
 func tdlibHTMLTests() []htmlTestCase {
 	entities := func(e ...tg.MessageEntityClass) func(msg string) []tg.MessageEntityClass {
