@@ -27,7 +27,6 @@ func (m *Manager) applyUsers(ctx context.Context, input ...tg.UserClass) error {
 		}
 		if user.Min {
 			// TODO(tdakkota): call some hook to get actual user if got min (e.g. force gaps to getDifference)
-			m.logger.Info("Ignoring Min user update", "user_id", user.ID)
 			continue
 		}
 		users = append(users, user)
