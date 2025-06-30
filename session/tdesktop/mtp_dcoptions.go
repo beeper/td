@@ -3,7 +3,7 @@ package tdesktop
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // MTPDCOption is a Telegram Desktop storage structure which stores DC info.

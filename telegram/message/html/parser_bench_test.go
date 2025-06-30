@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gotd/td/telegram/message/entity"
+	"github.com/beeper/td/telegram/message/entity"
 )
 
 func BenchmarkHTML(b *testing.B) {

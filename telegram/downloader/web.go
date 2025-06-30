@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 var errHashesNotSupported = errors.New("this schema does not support hashes fetch")

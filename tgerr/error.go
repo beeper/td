@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/ascii"
+	"github.com/beeper/td/ascii"
 )
 
 // Error represents RPC error returned as result to request.

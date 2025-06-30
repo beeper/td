@@ -8,7 +8,7 @@ import (
 	"github.com/go-faster/errors"
 	"github.com/gotd/ige"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // DecryptExchangeAnswer decrypts messages created during key exchange.

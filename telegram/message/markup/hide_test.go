@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 func TestHide(t *testing.T) {

@@ -7,9 +7,9 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/syncio"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/syncio"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/tg"
 )
 
 // nolint:gocognit

@@ -9,13 +9,13 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/rpc"
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tmap"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/rpc"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tmap"
 )
 
 type fuzzHandler struct {

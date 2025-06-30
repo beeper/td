@@ -7,7 +7,7 @@ import (
 
 	"github.com/gotd/ige"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // DecryptFromBuffer decodes EncryptedMessage and decrypts it.

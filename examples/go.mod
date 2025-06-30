@@ -1,4 +1,4 @@
-module github.com/gotd/td/examples
+module github.com/beeper/td/examples
 
 go 1.23.3
 
@@ -6,7 +6,7 @@ require (
 	github.com/cockroachdb/pebble v1.1.0
 	github.com/go-faster/errors v0.7.1
 	github.com/gotd/contrib v0.20.0
-	github.com/gotd/td v0.99.2
+	github.com/beeper/td v0.99.2
 	github.com/joho/godotenv v1.5.1
 	go.etcd.io/bbolt v1.3.9
 	go.uber.org/atomic v1.11.0
@@ -57,4 +57,4 @@ require (
 	rsc.io/qr v0.2.0 // indirect
 )
 
-replace github.com/gotd/td => ./..
+replace github.com/beeper/td => ./..

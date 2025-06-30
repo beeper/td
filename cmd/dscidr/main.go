@@ -7,7 +7,7 @@ import (
 
 	"gopkg.in/yaml.v3"
 
-	"github.com/gotd/td/telegram/dcs"
+	"github.com/beeper/td/telegram/dcs"
 )
 
 type CIDRElement struct {

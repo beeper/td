@@ -7,7 +7,7 @@ import (
 	"github.com/go-faster/errors"
 	"github.com/go-faster/jx"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // Decoder is a simple wrapper around jx.Decoder to conform TL type system.

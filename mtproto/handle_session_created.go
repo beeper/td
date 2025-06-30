@@ -4,9 +4,9 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/proto"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/proto"
 )
 
 func (c *Conn) handleSessionCreated(b *bin.Buffer) error {

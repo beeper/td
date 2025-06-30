@@ -6,14 +6,14 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/clock"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/mtproto"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tmap"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/clock"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/mtproto"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tmap"
+	"github.com/beeper/td/transport"
 )
 
 // ServerOptions of Server.

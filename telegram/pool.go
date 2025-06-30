@@ -6,13 +6,13 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/mtproto"
-	"github.com/gotd/td/pool"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/telegram/internal/manager"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/mtproto"
+	"github.com/beeper/td/pool"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/telegram/internal/manager"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/transport"
 )
 
 // CloseInvoker is a closeable tg.Invoker.

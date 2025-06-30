@@ -4,7 +4,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 func TestEncryptedMessage_Encode(t *testing.T) {

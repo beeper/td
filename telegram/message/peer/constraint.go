@@ -6,7 +6,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // PromiseDecorator is a decorator of peer promise.

@@ -7,8 +7,8 @@ import (
 	"image/jpeg"
 	"image/png"
 
-	"github.com/gotd/td/telegram/thumbnail"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/thumbnail"
+	"github.com/beeper/td/tg"
 )
 
 func ExampleExpand() {

@@ -1,7 +1,7 @@
 package e2e
 
 import (
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // EventBuilder struct.

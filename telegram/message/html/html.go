@@ -7,9 +7,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/gotd/td/telegram/message/entity"
-	"github.com/gotd/td/telegram/message/styling"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/message/entity"
+	"github.com/beeper/td/telegram/message/styling"
+	"github.com/beeper/td/tg"
 )
 
 // Bytes reads HTML from given byte slice and returns styling option

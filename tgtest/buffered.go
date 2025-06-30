@@ -4,8 +4,8 @@ import (
 	"context"
 	"sync"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/transport"
 )
 
 type bufferedConn struct {

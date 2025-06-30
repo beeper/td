@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gotd/td/session/tdesktop"
+	"github.com/beeper/td/session/tdesktop"
 )
 
 func ExampleRead() {

@@ -1,11 +1,11 @@
 package dialogs
 
 import (
-	"github.com/gotd/td/telegram/message/peer"
-	"github.com/gotd/td/telegram/query/channels/participants"
-	"github.com/gotd/td/telegram/query/messages"
-	"github.com/gotd/td/telegram/query/photos"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/message/peer"
+	"github.com/beeper/td/telegram/query/channels/participants"
+	"github.com/beeper/td/telegram/query/messages"
+	"github.com/beeper/td/telegram/query/photos"
+	"github.com/beeper/td/tg"
 )
 
 // Messages returns new messages history query builder for current dialog.

@@ -3,7 +3,7 @@ package crypto
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // EncryptedMessageData is stored in EncryptedMessage.EncryptedData.

@@ -12,8 +12,8 @@ import (
 
 	"github.com/gotd/neo"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/testutil"
 )
 
 func benchWrite(payloadSize int) func(b *testing.B) {

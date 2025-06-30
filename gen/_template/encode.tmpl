@@ -1,4 +1,4 @@
-{{- /*gotype: github.com/gotd/td/gen.structDef*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.structDef*/ -}}
 {{ define "encode" }}{{ $s := . }}
 // Encode implements bin.Encoder.
 func ({{ $s.Receiver }} *{{ $s.Name }}) Encode({{ $s.BufArg }} *bin.Buffer) error {

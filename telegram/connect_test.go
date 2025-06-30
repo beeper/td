@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/exchange"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/exchange"
 )
 
 type fingerprintNotFoundConn struct{}

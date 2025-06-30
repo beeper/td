@@ -8,10 +8,10 @@ import (
 
 	"github.com/coder/websocket"
 
-	"github.com/gotd/td/mtproxy/obfuscated2"
-	"github.com/gotd/td/proto/codec"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/wsutil"
+	"github.com/beeper/td/mtproxy/obfuscated2"
+	"github.com/beeper/td/proto/codec"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/wsutil"
 )
 
 type wsListener struct {

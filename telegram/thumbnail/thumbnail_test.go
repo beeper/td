@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/testutil"
 )
 
 func TestExpand(t *testing.T) {

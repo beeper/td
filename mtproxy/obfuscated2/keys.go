@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/crypto"
+	"github.com/beeper/td/crypto"
 )
 
 type keys struct {

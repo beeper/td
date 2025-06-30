@@ -6,13 +6,13 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/downloader"
-	"github.com/gotd/td/telegram/query"
-	"github.com/gotd/td/telegram/query/channels/participants"
-	"github.com/gotd/td/telegram/query/dialogs"
-	"github.com/gotd/td/telegram/query/messages"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/downloader"
+	"github.com/beeper/td/telegram/query"
+	"github.com/beeper/td/telegram/query/channels/participants"
+	"github.com/beeper/td/telegram/query/dialogs"
+	"github.com/beeper/td/telegram/query/messages"
+	"github.com/beeper/td/tg"
 )
 
 func ExampleQuery_iterAllMessages() {

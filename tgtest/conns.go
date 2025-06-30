@@ -5,8 +5,8 @@ import (
 
 	"go.uber.org/atomic"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/transport"
 )
 
 type connection struct {

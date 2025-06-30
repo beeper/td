@@ -3,9 +3,9 @@ package fileid
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/constant"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/constant"
+	"github.com/beeper/td/tg"
 )
 
 // PhotoSizeSource represents photo metadata stored in file_id.

@@ -13,8 +13,8 @@ import (
 	"go.uber.org/zap/zaptest"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/gotd/td/telegram/updates"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/updates"
+	"github.com/beeper/td/tg"
 )
 
 func TestE2E(t *testing.T) {

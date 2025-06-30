@@ -9,12 +9,12 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/telegram/updates"
-	updhook "github.com/gotd/td/telegram/updates/hook"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/telegram/updates"
+	updhook "github.com/beeper/td/telegram/updates/hook"
+	"github.com/beeper/td/tg"
 )
 
 func main() {

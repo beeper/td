@@ -6,9 +6,9 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/rpc"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/rpc"
 )
 
 // Invoke sends input and decodes result into output.

@@ -12,9 +12,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/transport"
 )
 
 func TestWebsocketListener(t *testing.T) {

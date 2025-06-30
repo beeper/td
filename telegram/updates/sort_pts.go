@@ -3,7 +3,7 @@ package updates
 import (
 	"sort"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 func sortUpdatesByPts(u []tg.UpdateClass) {

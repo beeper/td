@@ -3,7 +3,7 @@ package crypto
 import (
 	"io"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // RandInt64n returns random int64 from randSource in [0; n).

@@ -1,7 +1,7 @@
 package message
 
 import (
-	"github.com/gotd/td/telegram/message/styling"
+	"github.com/beeper/td/telegram/message/styling"
 )
 
 // StyledTextOption is an option for styling text.

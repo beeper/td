@@ -3,7 +3,7 @@ package qrlogin
 import (
 	"context"
 
-	"github.com/gotd/td/clock"
+	"github.com/beeper/td/clock"
 )
 
 // Options of QR.

@@ -11,15 +11,15 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/clock"
-	"github.com/gotd/td/mtproto"
-	"github.com/gotd/td/pool"
-	"github.com/gotd/td/rpc"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/telegram/internal/manager"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/clock"
+	"github.com/beeper/td/mtproto"
+	"github.com/beeper/td/pool"
+	"github.com/beeper/td/rpc"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/telegram/internal/manager"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
 )
 
 type migrationTestHandler func(id int64, dc int, body bin.Encoder) (bin.Encoder, error)

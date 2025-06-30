@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgmock"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgmock"
 )
 
 func generateDialogs(count int) []tg.DialogClass {

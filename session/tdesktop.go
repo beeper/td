@@ -3,9 +3,9 @@ package session
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/session/tdesktop"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/session/tdesktop"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/tg"
 )
 
 func findDCAddr(list []tg.DCOption, dcID int) string {

@@ -8,8 +8,8 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/telegram/auth"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/auth"
+	"github.com/beeper/td/tg"
 )
 
 type mockFlow struct {

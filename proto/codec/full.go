@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 // Full is full MTProto transport.

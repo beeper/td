@@ -3,8 +3,8 @@ package pool
 import (
 	"sync"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/mtproto"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/mtproto"
 )
 
 // Session represents DC session.

@@ -14,14 +14,14 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/session"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/telegram/internal/e2etest"
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/session"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/telegram/internal/e2etest"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/transport"
 )
 
 func tryConnect(ctx context.Context, opts telegram.Options) error {

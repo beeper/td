@@ -12,14 +12,14 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/multierr"
 
-	"github.com/gotd/td/telegram/query/internal/genutil"
+	"github.com/beeper/td/telegram/query/internal/genutil"
 )
 
 //go:embed _template/*.tmpl
 var templates embed.FS
 
 func generate(ctx context.Context, out io.Writer, pkgName string) error {
-	pkg, err := genutil.Load(ctx, "github.com/gotd/td/tg")
+	pkg, err := genutil.Load(ctx, "github.com/beeper/td/tg")
 	if err != nil {
 		return errors.Wrap(err, "load")
 	}

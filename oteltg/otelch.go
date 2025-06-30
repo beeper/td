@@ -2,4 +2,4 @@
 package oteltg
 
 // Name of instrumentation.
-const Name = "github.com/gotd/td"
+const Name = "github.com/beeper/td"

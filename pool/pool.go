@@ -9,8 +9,8 @@ import (
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/tdsync"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/tdsync"
 )
 
 // DC represents connection pool to one data center.

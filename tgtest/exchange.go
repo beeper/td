@@ -5,11 +5,11 @@ import (
 
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/exchange"
-	"github.com/gotd/td/proto/codec"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/exchange"
+	"github.com/beeper/td/proto/codec"
+	"github.com/beeper/td/transport"
 )
 
 type exchangeConn struct {

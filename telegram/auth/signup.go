@@ -3,7 +3,7 @@ package auth
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // SignUpRequired means that log in failed because corresponding account

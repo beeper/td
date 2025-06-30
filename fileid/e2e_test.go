@@ -10,10 +10,10 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/fileid"
-	"github.com/gotd/td/telegram"
-	"github.com/gotd/td/telegram/downloader"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/fileid"
+	"github.com/beeper/td/telegram"
+	"github.com/beeper/td/telegram/downloader"
+	"github.com/beeper/td/testutil"
 )
 
 func runBot(ctx context.Context, token, fileID string, logger *zap.Logger) error {

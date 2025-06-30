@@ -10,7 +10,7 @@ import (
 	"go.uber.org/zap/zapcore"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/clock"
+	"github.com/beeper/td/clock"
 )
 
 func TestLogGroup(t *testing.T) {

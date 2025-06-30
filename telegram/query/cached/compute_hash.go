@@ -3,8 +3,8 @@ package cached
 import (
 	"sort"
 
-	"github.com/gotd/td/telegram/query/hasher"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/telegram/query/hasher"
+	"github.com/beeper/td/tg"
 )
 
 func (s *ContactsGetContacts) computeHash(v *tg.ContactsContacts) int64 {

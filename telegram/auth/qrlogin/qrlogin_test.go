@@ -9,10 +9,10 @@ import (
 
 	"github.com/gotd/neo"
 
-	"github.com/gotd/td/constant"
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgmock"
+	"github.com/beeper/td/constant"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgmock"
 )
 
 func testQR(t *testing.T, migrate func(ctx context.Context, dcID int) error) (*tgmock.Mock, QR) {

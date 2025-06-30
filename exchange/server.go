@@ -5,7 +5,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/crypto"
+	"github.com/beeper/td/crypto"
 )
 
 // ServerExchange is a server-side key exchange flow.

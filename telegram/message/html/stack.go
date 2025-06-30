@@ -1,6 +1,6 @@
 package html
 
-import "github.com/gotd/td/telegram/message/entity"
+import "github.com/beeper/td/telegram/message/entity"
 
 type stackElem struct {
 	token  entity.Token

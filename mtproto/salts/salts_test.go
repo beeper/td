@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/testutil"
 )
 
 func generateSalts(n int) []mt.FutureSalt {

@@ -12,11 +12,11 @@ import (
 
 	"github.com/gotd/neo"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/testutil"
 )
 
 func TestCheckMessageID(t *testing.T) {

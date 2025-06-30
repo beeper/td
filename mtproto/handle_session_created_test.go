@@ -11,10 +11,10 @@ import (
 
 	"github.com/gotd/neo"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mt"
-	"github.com/gotd/td/proto"
-	"github.com/gotd/td/tdsync"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mt"
+	"github.com/beeper/td/proto"
+	"github.com/beeper/td/tdsync"
 )
 
 func TestConn_handleSessionCreated(t *testing.T) {

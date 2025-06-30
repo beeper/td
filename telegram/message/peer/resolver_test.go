@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
-	"github.com/gotd/td/tgmock"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
+	"github.com/beeper/td/tgmock"
 )
 
 func Test_plainResolver_Resolve(t *testing.T) {

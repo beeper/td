@@ -9,9 +9,9 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/session"
-	"github.com/gotd/td/telegram"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/session"
+	"github.com/beeper/td/telegram"
 )
 
 // memorySession implements in-memory session storage.

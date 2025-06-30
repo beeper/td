@@ -4,9 +4,9 @@ import (
 	"github.com/go-faster/errors"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/proto"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/proto"
 )
 
 func (c *Conn) newEncryptedMessage(id int64, seq int32, payload bin.Encoder, b *bin.Buffer) error {

@@ -3,7 +3,7 @@ package telegram
 import (
 	"context"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // SendMessage sends message to peer.

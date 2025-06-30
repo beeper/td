@@ -8,10 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap/zaptest"
 
-	"github.com/gotd/td/telegram/peers"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/tgerr"
-	"github.com/gotd/td/tgmock"
+	"github.com/beeper/td/telegram/peers"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/tgerr"
+	"github.com/beeper/td/tgmock"
 )
 
 func testManager(t *testing.T) (*tgmock.Mock, *peers.Manager) {

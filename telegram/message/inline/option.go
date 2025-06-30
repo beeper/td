@@ -4,8 +4,8 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/tg"
 )
 
 type resultPageBuilder struct {

@@ -1,6 +1,6 @@
 package markup
 
-import "github.com/gotd/td/tg"
+import "github.com/beeper/td/tg"
 
 // Hide creates markup to hide markup.
 func Hide() tg.ReplyMarkupClass {

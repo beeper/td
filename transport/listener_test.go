@@ -9,8 +9,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/proto/codec"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/proto/codec"
+	"github.com/beeper/td/testutil"
 )
 
 type mockListener struct {

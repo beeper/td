@@ -1,6 +1,6 @@
 package entity
 
-import "github.com/gotd/td/tg"
+import "github.com/beeper/td/tg"
 
 // Formatter is a message entity constructor.
 type Formatter func(offset, limit int) tg.MessageEntityClass
@@ -17,4 +17,4 @@ func (b *Builder) Format(s string, formats ...Formatter) *Builder {
 	return b.appendMessage(s, formats...)
 }
 
-//go:generate go run github.com/gotd/td/telegram/message/internal/mkentity -output options.gen.go
+//go:generate go run github.com/beeper/td/telegram/message/internal/mkentity -output options.gen.go

@@ -1,6 +1,6 @@
 package tgmock
 
-import "github.com/gotd/td/bin"
+import "github.com/beeper/td/bin"
 
 // Handler is a RPC call handler.
 type Handler interface {

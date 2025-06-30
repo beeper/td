@@ -1,4 +1,4 @@
-{{- /*gotype: github.com/gotd/td/gen.interfaceConfig*/ -}}
+{{- /*gotype: github.com/beeper/td/gen.interfaceConfig*/ -}}
 {{ define "box" }}{{ $f := .Interface }}
 // Decode{{ $f.Func }} implements binary de-serialization for {{ $f.Name }}.
 func Decode{{ $f.Func }} (buf *bin.Buffer) ({{ $f.Name }}, error) {

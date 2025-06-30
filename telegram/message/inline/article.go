@@ -1,7 +1,7 @@
 package inline
 
 import (
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // ArticleResultBuilder is article result option builder.

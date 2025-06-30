@@ -3,7 +3,7 @@ package message
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 func convertMessageMediaToInput(m tg.MessageMediaClass) (tg.InputMediaClass, error) {

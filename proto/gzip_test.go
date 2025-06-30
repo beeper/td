@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/testutil"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/testutil"
 )
 
 func TestGZIP_Encode(t *testing.T) {

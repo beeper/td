@@ -6,10 +6,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/contrib/bg"
+	"github.com/beeper/contrib/bg"
 
-	"github.com/gotd/td/examples"
-	"github.com/gotd/td/telegram"
+	"github.com/beeper/td/examples"
+	"github.com/beeper/td/telegram"
 )
 
 func main() {

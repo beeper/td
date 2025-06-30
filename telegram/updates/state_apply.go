@@ -6,7 +6,7 @@ import (
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 func (s *internalState) applySeq(ctx context.Context, state int, updates []update) error {

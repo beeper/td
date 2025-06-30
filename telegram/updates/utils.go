@@ -3,7 +3,7 @@ package updates
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 func validatePts(pts, ptsCount int) error {

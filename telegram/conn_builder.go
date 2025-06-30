@@ -5,13 +5,13 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/gotd/td/bin"
-	"github.com/gotd/td/mtproto"
-	"github.com/gotd/td/pool"
-	"github.com/gotd/td/telegram/dcs"
-	"github.com/gotd/td/telegram/internal/manager"
-	"github.com/gotd/td/tg"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/bin"
+	"github.com/beeper/td/mtproto"
+	"github.com/beeper/td/pool"
+	"github.com/beeper/td/telegram/dcs"
+	"github.com/beeper/td/telegram/internal/manager"
+	"github.com/beeper/td/tg"
+	"github.com/beeper/td/transport"
 )
 
 type clientHandler struct {

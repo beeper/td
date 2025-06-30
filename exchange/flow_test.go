@@ -12,10 +12,10 @@ import (
 	"go.uber.org/zap/zaptest"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/gotd/td/crypto"
-	"github.com/gotd/td/tdsync"
-	"github.com/gotd/td/testutil"
-	"github.com/gotd/td/transport"
+	"github.com/beeper/td/crypto"
+	"github.com/beeper/td/tdsync"
+	"github.com/beeper/td/testutil"
+	"github.com/beeper/td/transport"
 )
 
 func testExchange(rsaPad bool) func(t *testing.T) {

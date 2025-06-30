@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/gotd/td/tg"
+	"github.com/beeper/td/tg"
 )
 
 // Handler handles updates.

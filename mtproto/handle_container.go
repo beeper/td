@@ -3,9 +3,9 @@ package mtproto
 import (
 	"github.com/go-faster/errors"
 
-	"github.com/gotd/td/proto"
+	"github.com/beeper/td/proto"
 
-	"github.com/gotd/td/bin"
+	"github.com/beeper/td/bin"
 )
 
 func (c *Conn) handleContainer(msgID int64, b *bin.Buffer) error {
